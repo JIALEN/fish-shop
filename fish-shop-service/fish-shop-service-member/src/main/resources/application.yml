@@ -1,12 +1,21 @@
 ###服务启动端口号
 server:
   port: 8300
-###服务名称(服务注册到eureka名称)  
+###服务名称(服务注册到eureka名称)
 spring:
     application:
-        name: app-mayikt-member
+        name: app-fish-member
 ###服务注册到eureka地址
 eureka:
   client:
     service-url:
            defaultZone: http://localhost:8100/eureka
+swagger:
+  base-package: com.alen.member.service
+  title: 会员服务接口
+  description: 会员服务接口
+  version: 1.0
+  terms-of-service-url: www.baidu.com
+  contact:
+    name: alen
+    email: 858898485@qq.com

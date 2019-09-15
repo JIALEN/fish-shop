@@ -1,4 +1,4 @@
-package com.alen.service.impl.app;
+package com.alen.eureka.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

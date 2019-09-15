@@ -1,7 +1,6 @@
-package com.alen.fegin;
+package com.alen.member.fegin;
 
-import com.alen.service.entity.AppEntity;
-import com.alen.service.service.AppService;
+import com.alen.weixin.service.AppService;
 import org.springframework.cloud.openfeign.FeignClient;
 
 /**
@@ -10,7 +9,7 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @author alen
  * @create 2019-09-13 17:46
  **/
-@FeignClient(name = "app-mayikt-weixin")
+@FeignClient(name = "app-fish-weixin")
 public interface AppServiceFeign extends AppService {
 
 }

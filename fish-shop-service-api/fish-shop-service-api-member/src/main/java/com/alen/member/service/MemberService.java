@@ -1,6 +1,6 @@
-package com.alen.service;
+package com.alen.member.service;
 
-import com.alen.service.entity.AppEntity;
+import com.alen.weixin.entity.AppEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**

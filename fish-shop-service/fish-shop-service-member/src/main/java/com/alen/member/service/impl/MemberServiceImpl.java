@@ -1,10 +1,9 @@
-package com.alen.service.impl;
+package com.alen.member.service.impl;
 
-import com.alen.fegin.AppServiceFeign;
-import com.alen.service.MemberService;
-import com.alen.service.entity.AppEntity;
+import com.alen.member.fegin.AppServiceFeign;
+import com.alen.member.service.MemberService;
+import com.alen.weixin.entity.AppEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -20,7 +19,6 @@ public class MemberServiceImpl implements MemberService {
 	private AppServiceFeign appServiceFeign;
 
 	@Override
-	@GetMapping("/memberInvokWeixin")
 	public AppEntity memberInvokWeixin() {
 		return appServiceFeign.getApp();
 	}
