@@ -12,12 +12,18 @@
     <artifactId>fish-shop-service-api-member</artifactId>
     <description>会员服务接口</description>
     <dependencies>
+        <!-- 改为会员引入微信实体类层 -->
         <dependency>
             <groupId>com.alen</groupId>
-            <artifactId>fish-shop-service-api-weixin</artifactId>
+            <artifactId>fish-shop-api-weixin-dto</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.alen</groupId>
+            <artifactId>fish-shop-api-member-dto</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
 </project>

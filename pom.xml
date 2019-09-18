@@ -11,7 +11,9 @@
     <modules>
         <module>fish-shop-basics</module>
         <module>fish-shop-service-api</module>
-        <module>fish-shop-service</module>
+        <module>fish-shop-service-impl</module>
+        <module>fish-shop-common</module>
+        <module>fish-shop-api-dto</module>
     </modules>
     <description>公共Pranet</description>
     <parent>
