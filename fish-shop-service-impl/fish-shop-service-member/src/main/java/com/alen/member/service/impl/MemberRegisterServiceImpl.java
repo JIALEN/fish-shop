@@ -25,8 +25,9 @@ public class MemberRegisterServiceImpl extends BaseApiService<JSONObject> implem
 //	@Autowired
 //	private VerificaCodeServiceFeign verificaCodeServiceFeign;
 
+	@Override
 	@Transactional
-	public BaseResponse<JSONObject> register(@RequestBody UserInpDTO userInpDTO, String registCode) {
+	public BaseResponse<JSONObject> register(@RequestBody UserInpDTO userInpDTO) {
 		// 1.参数验证
 		// String userName = userInpDTO.getUserName();
 		// if (StringUtils.isEmpty(userName)) {
@@ -50,7 +51,8 @@ public class MemberRegisterServiceImpl extends BaseApiService<JSONObject> implem
 		userInpDTO.setPassword(newPassword);
 		// 4.调用数据库插入数据 将请求的dto参数转换DO
 		UserDo userDo = MeiteBeanUtils.dtoToDo(userInpDTO, UserDo.class);
-		return userMapper.register(userDo) > 0 ? setResultSuccess("注册成功") : setResultError("注册失败!");
+		BaseResponse<JSONObject>  response=userMapper.register(userDo) > 0 ? setResultSuccess("注册成功") : setResultError("注册失败!");
+		return response;
 	}
 	// dto 和do 可能 实体类不同，但是部分参数可能相同
 

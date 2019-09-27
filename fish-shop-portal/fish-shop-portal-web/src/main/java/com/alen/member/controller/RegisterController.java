@@ -72,7 +72,7 @@ public class RegisterController extends BaseWebController {
 		UserInpDTO voToDto = MeiteBeanUtils.voToDto(registerVo, UserInpDTO.class);
 		try {
 			String registCode = registerVo.getRegistCode();
-			BaseResponse<JSONObject> register = memberRegisterServiceFeign.register(voToDto, registCode);
+			BaseResponse<JSONObject> register = memberRegisterServiceFeign.register(voToDto);
 			if (!register.getCode().equals(Constants.HTTP_RES_CODE_200)) {
 				model.addAttribute("error", register.getMsg());
 				return MB_REGISTER_FTL;

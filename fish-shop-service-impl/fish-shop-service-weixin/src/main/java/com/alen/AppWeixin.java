@@ -1,4 +1,4 @@
-package com.alen.weixin;
+package com.alen;
 
 import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.spring4all.swagger.EnableSwagger2Doc;

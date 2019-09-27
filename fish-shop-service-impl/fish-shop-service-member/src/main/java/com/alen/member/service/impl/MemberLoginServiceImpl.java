@@ -35,7 +35,8 @@ public class MemberLoginServiceImpl extends BaseApiService<JSONObject> implement
 	@Autowired
 	private RedisUtil redisUtil;
 
-	public BaseResponse<JSONObject> login(@RequestBody UserLoginInpDTO userLoginInpDTO) {
+	@Override
+    public BaseResponse<JSONObject> login(@RequestBody UserLoginInpDTO userLoginInpDTO) {
 		// 1.验证参数
 		String mobile = userLoginInpDTO.getMobile();
 		if (StringUtils.isEmpty(mobile)) {
@@ -77,6 +78,8 @@ public class MemberLoginServiceImpl extends BaseApiService<JSONObject> implement
 			Long userId = userDo.getUserId();
 			// 5.根据userId+loginType 查询当前登陆类型账号之前是否有登陆过，如果登陆过 清除之前redistoken
 			UserTokenDo userTokenDo = userTokenMapper.selectByUserIdAndLoginType(userId, loginType);
+			redisUtil.setString("kkkkkk","jkjkjkj");
+			System.out.println("uiuiuiui"+redisUtil.getString("kkkkkk"));
 			transactionStatus = redisDataSoureceTransaction.begin();
 			if (userTokenDo != null) {
 				// 如果登陆过 清除之前redistoken

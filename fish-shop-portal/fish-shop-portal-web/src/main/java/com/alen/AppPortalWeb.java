@@ -14,8 +14,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * PortalWeb
  *
  */
-@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class,
-		DataSourceTransactionManagerAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
+@SpringBootApplication(exclude = {
+		DataSourceAutoConfiguration.class,
+		DataSourceTransactionManagerAutoConfiguration.class,
+		HibernateJpaAutoConfiguration.class })
 @EnableFeignClients
 @EnableEurekaClient
 public class AppPortalWeb {

@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author alen
  * @create 2019-09-13 17:27
  **/
-@ControllerAdvice(basePackages = "com.alen.service")
+@ControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler extends BaseApiService<JSONObject> {
 	@ExceptionHandler(RuntimeException.class)

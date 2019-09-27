@@ -3,8 +3,25 @@ server:
   port: 8300
 ###服务名称(服务注册到eureka名称)
 spring:
-    application:
+  application:
         name: app-fish-member
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-idle: 100
+        min-idle: 1
+        max-active: 1000
+        max-wait: -1ms
+###数据库相关连接
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/meite_member?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+
 ###服务注册到eureka地址
 eureka:
   client:
@@ -19,3 +36,10 @@ swagger:
   contact:
     name: alen
     email: 858898485@qq.com
+
+
+####打印MyBatias日志
+logging:
+  level:
+  ### 开发环境使用DEBUG 生产环境info或者error
+   com.alen.member.mapper: info
