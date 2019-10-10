@@ -15,6 +15,7 @@
     <modules>
         <module>fish-shop-service-member</module>
         <module>fish-shop-service-weixin</module>
+        <module>fish-shop-service-goods</module>
     </modules>
     <!-- 全局属性配置 -->
     <properties>
