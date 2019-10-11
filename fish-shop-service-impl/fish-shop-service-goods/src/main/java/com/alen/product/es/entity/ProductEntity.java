@@ -1,10 +1,12 @@
 package com.alen.product.es.entity;
 
-import org.elasticsearch.action.fieldstats.FieldStats.Date;
-import org.elasticsearch.cluster.metadata.MappingMetaData.Timestamp;
+
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import lombok.Data;
+
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * ES 索引和类型
