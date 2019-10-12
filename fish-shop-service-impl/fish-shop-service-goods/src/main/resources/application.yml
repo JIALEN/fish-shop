@@ -34,3 +34,5 @@ spring:
      cluster-name: elasticsearch-cluster
     ####地址
      cluster-nodes: 127.0.0.1:9300
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
