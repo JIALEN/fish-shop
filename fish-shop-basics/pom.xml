@@ -16,6 +16,7 @@
         <module>fish-shop-basics-springcloud-eureka</module>
         <module>fish-shop-basics-springcloud-zuul</module>
         <module>fish-shop-basics-xxl-sso-server</module>
+        <module>fish-shop-basics-elk-kafka</module>
     </modules>
 
 
