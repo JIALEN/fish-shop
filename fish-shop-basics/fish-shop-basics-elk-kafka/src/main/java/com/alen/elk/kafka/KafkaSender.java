@@ -34,7 +34,7 @@ public class KafkaSender<T> {
 		log.info("------------ message = {}", jsonObj);
 
 		// 发送消息
-		ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send("my_log", jsonObj);
+		ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send("goods_mylog", jsonObj);
 		future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {
 			@Override
 			public void onFailure(Throwable throwable) {
