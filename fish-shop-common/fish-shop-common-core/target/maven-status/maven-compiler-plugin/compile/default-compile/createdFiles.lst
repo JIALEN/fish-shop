@@ -1,0 +1,12 @@
+com\alen\core\type\TypeCastHelper.class
+com\alen\base\BaseDo.class
+com\alen\core\bean\MeiteBeanUtils.class
+com\alen\core\utils\RegexUtils.class
+com\alen\core\token\GenerateToken.class
+com\alen\core\utils\RedisUtil.class
+com\alen\core\error\GlobalExceptionHandler.class
+com\alen\core\transaction\RedisDataSoureceTransaction.class
+com\alen\core\utils\MD5Util.class
+com\alen\base\BaseApiService.class
+com\alen\base\BaseResponse.class
+com\alen\constants\Constants.class

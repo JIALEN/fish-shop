@@ -1,4 +1,4 @@
-package com.alen.zuul.app;
+package com.alen.zuul;
 
 import com.ctrip.framework.apollo.Config;
 import com.ctrip.framework.apollo.ConfigChangeListener;
