@@ -1,4 +1,4 @@
-package com.alen.zuul;
+package com.alen;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -33,11 +33,11 @@ import java.util.List;
 @EnableSwagger2Doc
 @EnableZuulProxy
 @MapperScan(basePackages = "com.alen.zuul")
-@EnableApolloConfig
+//@EnableApolloConfig
 @EnableFeignClients
 public class AppZuul {
     // 获取ApolloConfig
-    @ApolloConfig
+//    @ApolloConfig
     private Config appConfig;
 
     public static void main(String[] args) {

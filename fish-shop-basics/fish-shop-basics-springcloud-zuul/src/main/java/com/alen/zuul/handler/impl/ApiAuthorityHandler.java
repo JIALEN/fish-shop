@@ -25,6 +25,9 @@ public class ApiAuthorityHandler extends BaseHandler implements GatewayHandler {
 	public Boolean service(RequestContext ctx, String ipAddres, HttpServletRequest request,
 			HttpServletResponse response) {
 		log.info(">>>>>>>>>拦截2 开放Api接口 Token验证 ipAddres:{}<<<<<<<<<<<<<<<<<<<<<<<<<<", ipAddres);
+		if(gatewayHandler==null){
+			return true;
+		}
 		String servletPath = request.getServletPath();
 		if (!servletPath.substring(0, 7).equals("/public")) {
 			// 传递给下一个

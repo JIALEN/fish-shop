@@ -31,6 +31,9 @@ public class BlacklistHandler extends BaseHandler implements GatewayHandler {
 			HttpServletResponse response) {
 		// >>>>>>>>>>>>>黑名单拦截操作<<<<<<<<<<<<<<<<<<<
 		log.info(">>>>>>>>>拦截1 黑名单拦截 ipAddres:{}<<<<<<<<<<<<<<<<<<<<<<<<<<", ipAddres);
+		if(gatewayHandler==null){
+			return true;
+		}
 		MeiteBlacklist meiteBlacklist = blacklistMapper.findBlacklist(ipAddres);
 		if (meiteBlacklist != null) {
 			resultError(ctx, "ip:" + ipAddres + ",Insufficient access rights");
