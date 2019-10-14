@@ -14,7 +14,14 @@ import java.util.Map;
 
 /**
  * 参数验证
+ * MD5 单向加密 不可逆 加盐
+ * 	 客户端调用接口 add?userName=yushengjun&zhangsan=644 MD5
+ * 	 userName=yushengjun&zhangsan=644 ==签名=msfgfjsjsxjss
+ * 	 userName=yushengjun&zhangsan=644 名=msfgfjsjsxjss
+ * 	 msfgfjsjsxjss=msfgfjsjsxjss
  *
+ * 	 签名的目的是 为了防止数据被篡改 数据还是明文数据
+ * 	 加密 RSA
  * @author alen
  * @create 2019-10-14 10:22
  **/
