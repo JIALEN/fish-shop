@@ -18,7 +18,7 @@ spring:
 ###数据库相关连接
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/meite_member?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://127.0.0.1:3306/fish_member?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: root
 
