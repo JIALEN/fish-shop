@@ -17,6 +17,7 @@
         <module>fish-shop-service-api-member</module>
         <module>fish-shop-service-api-goods</module>
         <module>fish-shop-service-api-auth</module>
+        <module>fish-shop-service-api-spike</module>
     </modules>
     <dependencies>
         <dependency>

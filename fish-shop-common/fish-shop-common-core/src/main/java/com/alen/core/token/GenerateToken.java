@@ -1,5 +1,7 @@
 package com.alen.core.token;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import com.alen.core.utils.RedisUtil;
@@ -47,6 +49,42 @@ public class GenerateToken {
 	}
 
 	/**
+	 * 移除token
+	 *
+	 * @param token
+	 * @return
+	 */
+	public Boolean removeToken(String token) {
+		if (StringUtils.isEmpty(token)) {
+			return null;
+		}
+		return redisUtil.delKey(token);
+
+	}
+
+
+
+	public void createListToken(String keyPrefix, String redisKey, Long tokenQuantity) {
+		List<String> listToken = getListToken(keyPrefix, tokenQuantity);
+		redisUtil.setList(redisKey, listToken);
+	}
+
+	public List<String> getListToken(String keyPrefix, Long tokenQuantity) {
+		List<String> listToken = new ArrayList<>();
+		for (int i = 0; i < tokenQuantity; i++) {
+			String token = keyPrefix + UUID.randomUUID().toString().replace("-", "");
+			listToken.add(token);
+		}
+		return listToken;
+
+	}
+
+	public String getListKeyToken(String key) {
+		String value = redisUtil.getStringRedisTemplate().opsForList().leftPop(key);
+		return value;
+	}
+
+	/**
 	 * 根据token获取redis中的value值
 	 *
 	 * @param token
@@ -60,18 +98,6 @@ public class GenerateToken {
 		return value;
 	}
 
-	/**
-	 * 移除token
-	 *
-	 * @param token
-	 * @return
-	 */
-	public Boolean removeToken(String token) {
-		if (StringUtils.isEmpty(token)) {
-			return null;
-		}
-		return redisUtil.delKey(token);
 
-	}
 
 }
