@@ -7,6 +7,7 @@ import com.alen.core.token.GenerateToken;
 import com.alen.spike.producer.SpikeCommodityProducer;
 import com.alen.spike.service.mapper.SeckillMapper;
 import com.alen.spike.service.mapper.entity.SeckillEntity;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -32,6 +33,7 @@ public class SpikeCommodityServiceImpl extends BaseApiService<JSONObject> implem
 
 	@Override
 	@Transactional
+	@HystrixCommand(fallbackMethod = "spikeFallback")
 	public BaseResponse<JSONObject> spike(String phone, Long seckillId) {
 		// 1.参数验证
 		if (StringUtils.isEmpty(phone)) {
@@ -55,7 +57,9 @@ public class SpikeCommodityServiceImpl extends BaseApiService<JSONObject> implem
 
 		return setResultSuccess("正在排队中.....");
 	}
-
+	private BaseResponse<JSONObject> spikeFallback(String phone, Long seckillId) {
+		return setResultError("服务器忙,请稍后重试!");
+	}
 	@Async
 	public void addMQSpike(Long seckillId, String phone) {
 		JSONObject data = new JSONObject();

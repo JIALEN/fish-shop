@@ -31,16 +31,17 @@ public class BlacklistHandler extends BaseHandler implements GatewayHandler {
 			HttpServletResponse response) {
 		// >>>>>>>>>>>>>黑名单拦截操作<<<<<<<<<<<<<<<<<<<
 		log.info(">>>>>>>>>拦截1 黑名单拦截 ipAddres:{}<<<<<<<<<<<<<<<<<<<<<<<<<<", ipAddres);
-		if(gatewayHandler==null){
-			return true;
-		}
 		MeiteBlacklist meiteBlacklist = blacklistMapper.findBlacklist(ipAddres);
 		if (meiteBlacklist != null) {
 			resultError(ctx, "ip:" + ipAddres + ",Insufficient access rights");
 			return Boolean.FALSE;
 		}
 		// 传递给下一个
-		gatewayHandler.service(ctx, ipAddres, request, response);
+		if(nextGatewayHandler==null){
+			return true;
+		}else{
+			nextGatewayHandler.service(ctx, ipAddres, request, response);
+		}
 		return Boolean.TRUE;
 	}
 

@@ -25,13 +25,11 @@ public class ApiAuthorityHandler extends BaseHandler implements GatewayHandler {
 	public Boolean service(RequestContext ctx, String ipAddres, HttpServletRequest request,
 			HttpServletResponse response) {
 		log.info(">>>>>>>>>拦截2 开放Api接口 Token验证 ipAddres:{}<<<<<<<<<<<<<<<<<<<<<<<<<<", ipAddres);
-		if(gatewayHandler==null){
-			return true;
-		}
+
 		String servletPath = request.getServletPath();
 		if (!servletPath.substring(0, 7).equals("/public")) {
 			// 传递给下一个
-			gatewayHandler.service(ctx, ipAddres, request, response);
+			nextGatewayHandler.service(ctx, ipAddres, request, response);
 			return true;
 		}
 		String accessToken = request.getParameter("accessToken");
@@ -47,8 +45,13 @@ public class ApiAuthorityHandler extends BaseHandler implements GatewayHandler {
 			resultError(ctx, appInfo.getMsg());
 			return Boolean.FALSE;
 		}
-		// 传递给下一个
-		gatewayHandler.service(ctx, ipAddres, request, response);
+		if(nextGatewayHandler==null){
+			return true;
+		}else{
+			// 传递给下一个
+			nextGatewayHandler.service(ctx, ipAddres, request, response);
+		}
+
 		return Boolean.TRUE;
 	}
 

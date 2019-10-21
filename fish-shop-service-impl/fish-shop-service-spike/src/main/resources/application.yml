@@ -32,4 +32,17 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/fish_spike
-
+  rabbitmq:
+  ####连接地址
+    host: 127.0.0.1
+   ####端口号
+    port: 5672
+   ####账号
+    username: guest
+   ####密码
+    password: guest
+   ### 地址
+    virtual-host: /admin_host
+    ###开启消息确认机制 confirms
+    publisher-confirms: true
+    publisher-returns: true
