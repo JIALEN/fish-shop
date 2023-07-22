@@ -21,7 +21,7 @@
     </modules>
     <!-- 全局属性配置 -->
     <properties>
-        <apollo.version>1.0.0</apollo.version>
+        <apollo.version>1.8.0</apollo.version>
     </properties>
     <dependencies>
         <!-- springcloud feign组件 -->
